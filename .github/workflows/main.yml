@@ -3,15 +3,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  audit:
+  lighthouseci:
     runs-on: ubuntu-latest
     steps:
-    - name: Audit live URL
-      uses: jakejarvis/lighthouse-action@master
-      with:
-        url: 'https://teachforamrica.org/'
-    - name: Upload results as an artifact
-      uses: actions/upload-artifact@master
-      with:
-        name: report
-        path: './report'
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install && npm install -g @lhci/cli@0.14.x
+      - run: npm run build
+      - run: lhci autorun
+
