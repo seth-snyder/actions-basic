@@ -10,5 +10,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - run: echo 'pwd'
+      - run: pwd
+      - run: echo 'ls -l'
+      - run: ls -l
       - run: mkdir ./lighthouse-parade-data && chmod 777 ./lighthouse-parade-data
+      - run: echo 'after ls -l'
+      - run: ls -l
       - run: npx lighthouse-parade http://www.teachforamerica.org/ --max-crawl-depth=1
