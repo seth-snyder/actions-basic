@@ -10,5 +10,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: mkdir lighthouse-parade-data && chmod 777 lighthouse-parade-data
-      - run: npx lighthouse-parade http://www.teachforamerica.org/
+      - run: mkdir ./lighthouse-parade-data && chmod 777 ./lighthouse-parade-data
+      - run: npx lighthouse-parade http://www.teachforamerica.org/ --max-crawl-depth=1
