@@ -1,0 +1,14 @@
+name: Run The Parade
+on: 
+  workflow_dispatch:
+
+jobs:
+  lighthouseci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: mkdir lighthouse-parade-data && chmod 777 lighthouse-parade-data
+      - run: npx lighthouse-parade http://www.teachforamerica.org/
