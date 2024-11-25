@@ -18,3 +18,6 @@ jobs:
       - run: echo 'after ls -l'
       - run: ls -l
       - run: npx lighthouse-parade http://www.teachforamerica.org/ --max-crawl-depth=1
+      - run: cd lighthouse-parade-data
+      - run: ls -l
+      - run: cat *
