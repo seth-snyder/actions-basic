@@ -19,5 +19,8 @@ jobs:
       - run: ls -l
       - run: npx lighthouse-parade http://www.teachforamerica.org/ --max-crawl-depth=1
       - run: cd lighthouse-parade-data
+      - run: echo 'running pwd'
+      - run: pwd
+      - run: echo 'running ls -l'
       - run: ls -l
       - run: cat *
