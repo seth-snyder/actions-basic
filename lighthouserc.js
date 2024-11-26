@@ -4,7 +4,7 @@ module.exports = {
   ci: {
     collect: {
       url: [
-        'httphttps://www.teachforamerica.org/',
+        'https://www.teachforamerica.org/',
         'https://www.teachforamerica.org/what-we-do/our-work',
         'https://www.teachforamerica.org/what-we-do/our-impact',
         'https://www.teachforamerica.org/donate',
