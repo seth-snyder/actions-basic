@@ -22,7 +22,7 @@ module.exports = {
         'https://www.teachforamerica.org/the-terms-of-use-agreement',
         'https://www.teachforamerica.org/eligibility/',
         'https://www.teachforamerica.org/tfa-careers',
-        'https://www.teachforamerica.org/privacy-polic'
+        'https://www.teachforamerica.org/privacy-policy'
         
         // ex) 'http://localhost:3000'
         // add additional urls to audit
