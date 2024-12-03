@@ -19,5 +19,5 @@ jobs:
         run: unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
 
       - name: Display
-        run: cd .unlighthouse && ls && cat ci-result.csv
+        run: git add -A && git commit -m "after run"
 
