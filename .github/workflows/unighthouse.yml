@@ -19,4 +19,4 @@ jobs:
         run: unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
 
       - name: Display
-        run: git config --global user.email "seth@sethsnyder.com" && git config --global user.name "Seth Snyder" && git add -A && git commit -m "after run"
+        run: cp ./unlighthouse/ci-result.csv . && ls && git config --global user.email "seth@sethsnyder.com" && git config --global user.name "Seth Snyder" && git add -A && git commit -m "after run"
