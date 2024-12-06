@@ -1,0 +1,35 @@
+name: Upload to GDrive
+
+#
+# This workflow will run a command on a cloud hosted Ubuntu Actions runner and open an issue
+# with the output of the shell command
+#
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: The command to run
+        default: curl https://api.github.com/octocat
+
+jobs:
+  run-command:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Upload a file to Google Drive
+      uses: nextDriveIoE/google-drive-upload-action@v2
+      with:
+        target: <LOCAL_PATH_TO_YOUR_FILE>
+        credentials: ${{ secrets.<YOUR_SERVICE_ACCOUNT_CREDENTIALS> }}
+        parent_folder_id: <YOUR_DRIVE_FOLDER_ID>
+      #
+      # actions/github-script is a very powerful action which allows you to
+      # easily run a script in your workflow that uses the GitHub API and the
+      # workflow run context.
+      #
+      # To learn more, visit https://github.com/actions/github-script.
+      #
+      - name: Run command
