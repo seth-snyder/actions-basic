@@ -17,9 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Upload a file to Google Drive
+      - uses: actions/checkout@v4
+      - name: Upload a file to Google Drive
       uses: nextDriveIoE/google-drive-upload-action@v2
       with:
         target: report.csv
