@@ -16,15 +16,12 @@ jobs:
         key: ${{ secrets.PANTHEON_SSH_KEY }}
         config: ${{ secrets.SSH_CONFIG }}
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
-
     - name: Installing Terminus
       uses: kopepasah/setup-pantheon-terminus@master
       with:
         pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
-
  - name: Install Dependencies
         run: echo Installl dependencies
-
     - name: deployer
       env:
         pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
