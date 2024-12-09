@@ -27,7 +27,7 @@ jobs:
       run: |
         BASE_BRANCH=${GITHUB_REF##*/}
         BASE_BRANCH=${BASE_BRANCH:0:11}
-        SITE=`site:info teachforamerica --field=id --format=string`
+        SITE=`terminus site:info teachforamerica --field=id --format=string`
 
         #echo Running terminus site:info teachforamerica --field=id --format=string
         #terminus site:info teachforamerica --field=id --format=string
