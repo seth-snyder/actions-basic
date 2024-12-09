@@ -36,8 +36,21 @@ jobs:
         terminus env:wake teachforamerica.$BASE_BRANCH
       
     - name: Run UNLighthouse Report.
-      run: echo run UL REport.
-      
+      run: |
+        BASE_BRANCH=${GITHUB_REF##*/}
+        BASE_BRANCH=${BASE_BRANCH:0:11} unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
+        URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
+
+        echo Running the Lighthouse Report
+        unlighthouse-ci --site $URL --build-static --reporter csvExpanded
+        echo Finished the Lighthouse Report
+
+        echo Renaming UNLighthouse report.
+        mv ./unlighthouse unlighthouse
+
+        echo Running ls -l
+        ls -l
+
     - name: deployer
       env:
         pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
