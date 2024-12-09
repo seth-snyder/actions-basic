@@ -1,3 +1,16 @@
-name: cur1
-on:
+name: CUR1
+on: 
   workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Installing Terminus
+      run: |
+        echo hello
+        
+    - name: deployer
+        run: |
+        echo goodbye
+   
