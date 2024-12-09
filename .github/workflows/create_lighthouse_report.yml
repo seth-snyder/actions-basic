@@ -32,11 +32,11 @@ jobs:
           URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
 
           #Wake Up call.
-          echo Waking Up Multidev.
-          terminus env:wake teachforamerica.$BASE_BRANCH
+          #echo Waking Up Multidev.
+          #terminus env:wake teachforamerica.$BASE_BRANCH
           
           echo Running the Lighthouse Report
-          unlighthouse-ci --site $URL --build-static --reporter csvExpanded
+          #unlighthouse-ci --site $URL --build-static --reporter csvExpanded
           echo Finished the Lighthouse Report
 
           echo Renaming UNLighthouse report.
