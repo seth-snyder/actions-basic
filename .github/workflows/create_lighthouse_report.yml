@@ -21,15 +21,6 @@ jobs:
       uses: kopepasah/setup-pantheon-terminus@master
       with:
         pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
-    
-#    - name: Install Dependencies
-#        run: npm install -g @unlighthouse/cli puppeteer netlify-cli
-
-    - name: Run UNLighthouse Report.
-      run: |
-        BASE_BRANCH=${GITHUB_REF##*/}
-        BASE_BRANCH=${BASE_BRANCH:0:11} unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
-        URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
 
     - name: deployer
       env:
