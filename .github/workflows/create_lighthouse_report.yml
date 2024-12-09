@@ -39,7 +39,11 @@ jobs:
         echo Running ls -l
         ls -l
 
-        rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ ./unlighthouse files/sunlighthouse
+        #rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ ./unlighthouse files/sunlighthouse
+
+        rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ ./unlighthouse seth-test.a0995b70-62da-4c28-9600-ea646d1a1285@appserver.seth-test.a0995b70-62da-4c28-9600-ea646d1a1285.drush.in:/files
+        
+        
         echo bye
         
         
