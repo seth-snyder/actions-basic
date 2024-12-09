@@ -31,7 +31,7 @@ jobs:
           BASE_BRANCH=${BASE_BRANCH:0:11} unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
           URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
           echo Running the Lighthouse Report
-#unlighthouse-ci --site $URL --build-static --reporter csvExpanded
+          unlighthouse-ci --site $URL --build-static --reporter csvExpanded
           echo Finished the Lighthouse Report
 
           echo Renaming UNLighthouse report.
@@ -64,9 +64,7 @@ jobs:
         # Run rsync to upload lighthouse report.
         echo Running rsync to copy files to multidev.
         rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ $SOURCE_PATH $DESTINATION_PATH
-
-        echo Running ls -l
-        ls -l
+        echo Completed rsync
         echo bye
         
         
