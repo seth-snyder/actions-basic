@@ -23,16 +23,16 @@ jobs:
         pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
 
     - name: Installing dependencies
-      run: |
-        BASE_BRANCH=${GITHUB_REF##*/}
-        BASE_BRANCH=${BASE_BRANCH:0:11} unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
-        URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
+        run: |
+          BASE_BRANCH=${GITHUB_REF##*/}
+          BASE_BRANCH=${BASE_BRANCH:0:11} unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
+          URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
 
-        #Wake Up call.
-        echo Waking Up Multidev.
-        terminus env:wake teachforamerica.$BASE_BRANCH
+          #Wake Up call.
+          echo Waking Up Multidev.
+          terminus env:wake teachforamerica.$BASE_BRANCH
         
-        echo Installing dependencies
+          echo Installing dependencies
 
     - name: deployer
       env:
