@@ -17,14 +17,17 @@ jobs:
         config: ${{ secrets.SSH_CONFIG }}
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
-    - name: Installing Terminus
+    - name: Installing Terminus.
       uses: kopepasah/setup-pantheon-terminus@master
       with:
-        pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
+        pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }
 
-    - name: Installing dependencies
+    - name: Installing dependencies.
       run: npm install -g @unlighthouse/cli puppeteer netlify-cli
 
+    - name: Run UNLighthouse Report.
+      run: echo run UL REport.
+      
     - name: deployer
       env:
         pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
