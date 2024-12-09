@@ -22,8 +22,8 @@ jobs:
       with:
         pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
     
-    - name: Install Dependencies
-        run: npm install -g @unlighthouse/cli puppeteer netlify-cli
+#    - name: Install Dependencies
+#        run: npm install -g @unlighthouse/cli puppeteer netlify-cli
 
     - name: Run UNLighthouse Report.
         run: |
