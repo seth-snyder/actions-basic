@@ -38,5 +38,8 @@ jobs:
 
         echo Running ls -l
         ls -l
+
+        rsync -Lvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ report.csv files/exp
+        echo bye
         
         
