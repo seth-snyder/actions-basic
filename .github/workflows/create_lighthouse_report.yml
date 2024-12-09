@@ -28,7 +28,7 @@ jobs:
         BASE_BRANCH=${GITHUB_REF##*/}
         BASE_BRANCH=${BASE_BRANCH:0:11}
         SITE=`terminus site:info teachforamerica --field=id --format=string`
-        URL= htts://$SITE-teachforamerica.pantheonsite.io
+        URL=https://$SITE-teachforamerica.pantheonsite.io
 
         #echo Running terminus site:info teachforamerica --field=id --format=string
         #terminus site:info teachforamerica --field=id --format=string
