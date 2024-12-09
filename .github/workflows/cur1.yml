@@ -1,0 +1,3 @@
+name: cur1
+on:
+  workflow_dispatch:
