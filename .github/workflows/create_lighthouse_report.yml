@@ -26,24 +26,24 @@ jobs:
 #        run: npm install -g @unlighthouse/cli puppeteer netlify-cli
 
     - name: Run UNLighthouse Report.
-        run: |
-          BASE_BRANCH=${GITHUB_REF##*/}
-          BASE_BRANCH=${BASE_BRANCH:0:11} unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
-          URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
+      run: |
+        BASE_BRANCH=${GITHUB_REF##*/}
+        BASE_BRANCH=${BASE_BRANCH:0:11} unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
+        URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
 
-          #Wake Up call.
-          #echo Waking Up Multidev.
-          #terminus env:wake teachforamerica.$BASE_BRANCH
+        #Wake Up call.
+        #echo Waking Up Multidev.
+        #terminus env:wake teachforamerica.$BASE_BRANCH
           
-          echo Running the Lighthouse Report
-          #unlighthouse-ci --site $URL --build-static --reporter csvExpanded
-          echo Finished the Lighthouse Report
+        echo Running the Lighthouse Report
+        #unlighthouse-ci --site $URL --build-static --reporter csvExpanded
+        echo Finished the Lighthouse Report
 
-          echo Renaming UNLighthouse report.
-          mv ./unlighthouse unlighthouse
+        echo Renaming UNLighthouse report.
+        mv ./unlighthouse unlighthouse
 
-          echo Running ls -l
-          ls -l
+        echo Running ls -l
+        ls -l
   
     - name: deployer
       env:
