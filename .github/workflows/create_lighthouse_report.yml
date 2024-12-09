@@ -29,7 +29,7 @@ jobs:
         BASE_BRANCH=${BASE_BRANCH:0:11}
         SITE=`terminus site:info teachforamerica --field=id --format=string`
         URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
-        USER=BASE_BRANCH.SITE.drush.in:/files
+        USER=$BASE_BRANCH.$SITE.drush.in:/files
         DESTINATION_PATH=appserver.$USER@$BASE_BRANCH
         
         #echo Running terminus site:info teachforamerica --field=id --format=string
