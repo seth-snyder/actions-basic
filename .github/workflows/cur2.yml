@@ -21,6 +21,11 @@ jobs:
       uses: kopepasah/setup-pantheon-terminus@master
       with:
         pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
+
+    - name: Installing dependencies
+      run: |
+        echo Installing dependencies
+
     - name: deployer
       env:
         pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
