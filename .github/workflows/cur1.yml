@@ -1,4 +1,4 @@
-name: Audit live site 2S
+name: Audit live site 2 seth-test
 on: 
   workflow_dispatch:
 
@@ -6,10 +6,5 @@ jobs:
   lighthouseci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - run: npm install -g @lhci/cli@0.14.x
-      - run: lhci autorun
-      - run: ls -l .lighthouseci
+      - run: echo s2 branch seth-test
+      - run: echo s2 branch seth-test
