@@ -20,7 +20,7 @@ jobs:
     - name: Installing Terminus.
       uses: kopepasah/setup-pantheon-terminus@master
       with:
-        pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }
+        pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
 
     - name: Installing dependencies.
       run: npm install -g @unlighthouse/cli puppeteer netlify-cli
