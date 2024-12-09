@@ -25,6 +25,9 @@ jobs:
     - name: Installing dependencies.
       run: npm install -g @unlighthouse/cli puppeteer netlify-cli
 
+    - name: Waking Up Multidev.
+      run: echo Waking Up Multidev.
+      
     - name: Run UNLighthouse Report.
       run: echo run UL REport.
       
