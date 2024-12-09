@@ -16,35 +16,10 @@ jobs:
         key: ${{ secrets.PANTHEON_SSH_KEY }}
         config: ${{ secrets.SSH_CONFIG }}
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
-
     - name: Installing Terminus
       uses: kopepasah/setup-pantheon-terminus@master
       with:
         pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
-  
-    - name: Install Dependencies
-        run: npm install -g @unlighthouse/cli puppeteer netlify-cli
-
-    - name: Run UNLighthouse Report.
-        run: |
-          BASE_BRANCH=${GITHUB_REF##*/}
-          BASE_BRANCH=${BASE_BRANCH:0:11} unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
-          URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
-
-          #Wake Up call.
-          echo Waking Up Multidev.
-          terminus env:wake teachforamerica.$BASE_BRANCH
-
-          echo Running the Lighthouse Report
-          unlighthouse-ci --site $URL --build-static --reporter csvExpanded
-          echo Finished the Lighthouse Report
-
-          echo Renaming UNLighthouse report.
-          mv ./unlighthouse unlighthouse
-
-          echo Running ls -l
-          ls -l
-
     - name: deployer
       env:
         pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
@@ -66,10 +41,19 @@ jobs:
         echo USER = $USER
         echo DESTINATION_PATH = $DESTINATION_PATH
 
-        # Run rsync to upload lighthouse report.
+        echo Running ls -l
+        ls -l
+
+
+
+        #rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ ./unlighthouse files/sunlighthouse
+
+        #rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ ./unlighthouse seth-test.a0995b70-62da-4c28-9600-ea646d1a1285@appserver.seth-test.a0995b70-62da-4c28-9600-ea646d1a1285.drush.in:/files
+
         echo Running rsync to copy files to multidev.
         rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ $SOURCE_PATH $DESTINATION_PATH
-        echo Completed rsync
+
+        
         echo bye
         
         
