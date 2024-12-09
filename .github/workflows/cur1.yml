@@ -6,5 +6,5 @@ jobs:
   lighthouseci:
     runs-on: ubuntu-latest
     steps:
-      - run: echo s1
-      - run: echo s2
+      - run: echo s2 branch main
+      - run: echo s2 branch main
