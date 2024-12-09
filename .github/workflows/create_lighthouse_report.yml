@@ -39,7 +39,7 @@ jobs:
         echo Running ls -l
         ls -l
 
-        rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ unlighthouse files/sunlighthouse
+        rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ ./unlighthouse files/sunlighthouse
         echo bye
         
         
