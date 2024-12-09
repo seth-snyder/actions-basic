@@ -1,0 +1,15 @@
+name: CUR1s
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Installing Terminus
+      run: |
+        echo hello
+        
+    - name: deployer
+        run: |
+        echo goodbye
