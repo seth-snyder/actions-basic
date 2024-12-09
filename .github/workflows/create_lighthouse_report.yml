@@ -1,4 +1,4 @@
-name: "7. Delete Multidev  - Utility"
+name: "10. Create Lighthouse Report  - Utility"
 on:
   workflow_dispatch:
     inputs:
