@@ -1,0 +1,10 @@
+name: Audit cur2 main
+on: 
+  workflow_dispatch:
+
+jobs:
+  lighthouseci:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo cur1 branch main
+      - run: echo cur1 branch main
