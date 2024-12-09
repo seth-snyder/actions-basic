@@ -35,4 +35,8 @@ jobs:
         echo Ran teachforamerica.$BASE_BRANCH
         echo Got this ID $SITE
         echo want report for $URL
+
+        echo Running ls -l
+        ls -l
+        
         
