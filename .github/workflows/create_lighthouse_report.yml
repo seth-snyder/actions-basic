@@ -29,19 +29,26 @@ jobs:
         BASE_BRANCH=${BASE_BRANCH:0:11}
         SITE=`terminus site:info teachforamerica --field=id --format=string`
         URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
-
+        USER=BASE_BRANCH.SITE.drush.in:/files
+        DESTINATION_PATH=appserver.$USER@$BASE_BRANCH
+        
         #echo Running terminus site:info teachforamerica --field=id --format=string
         #terminus site:info teachforamerica --field=id --format=string
         echo Ran teachforamerica.$BASE_BRANCH
         echo Got this ID $SITE
         echo want report for $URL
+        echo USER = $USER
+        echo DESTINATION_PATH = $DESTINATION_PATH
 
         echo Running ls -l
         ls -l
 
+          #seth-test.a0995b70-62da-4c28-9600-ea646d1a1285@
+#appserver.seth-test.a0995b70-62da-4c28-9600-ea646d1a1285.drush.in:/files
+
         #rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ ./unlighthouse files/sunlighthouse
 
-        rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ ./unlighthouse seth-test.a0995b70-62da-4c28-9600-ea646d1a1285@appserver.seth-test.a0995b70-62da-4c28-9600-ea646d1a1285.drush.in:/files
+        #rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ ./unlighthouse seth-test.a0995b70-62da-4c28-9600-ea646d1a1285@appserver.seth-test.a0995b70-62da-4c28-9600-ea646d1a1285.drush.in:/files
         
         
         echo bye
