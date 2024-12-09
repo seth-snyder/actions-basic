@@ -1,16 +1,10 @@
-name: CUR1
+name: Audit live site 2
 on: 
   workflow_dispatch:
 
 jobs:
-  build:
+  lighthouseci:
     runs-on: ubuntu-latest
     steps:
-    - name: Installing Terminus
-      run: |
-        echo hello
-        
-    - name: deployer
-        run: |
-        echo goodbye
-   
+      - run: echo s1
+      - run: echo s2
