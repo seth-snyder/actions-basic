@@ -1,10 +1,16 @@
-name: Create lighthouse report MT
- on: 
-  workflow_dispatch:
+name: Deployment
+
+concurrency: production
+
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  lighthouseci:
+  deployment:
     runs-on: ubuntu-latest
+    environment: production
     steps:
-      - run: echo cur1 branch main
-      - run: echo cur1 branch main
+      - name: deploy
+        # ...deployment-specific steps
