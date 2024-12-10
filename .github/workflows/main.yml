@@ -1,17 +1,90 @@
-name: Audit live site
-on: 
+name: Audit live site stuff
+on:
   workflow_dispatch:
+    inputs:
+      delete_git_branch:
+        type: boolean
+        description: Delete git branch
 
 jobs:
-  lighthouseci:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - run: npm install -g @lhci/cli@0.14.x
-      - run: lhci autorun
-      - run: ls -l .lighthouseci
+    - uses: actions/checkout@v1
+    - uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.PANTHEON_SSH_KEY }}
+        config: ${{ secrets.SSH_CONFIG }}
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+    - name: Installing Terminus.
+      uses: kopepasah/setup-pantheon-terminus@master
+      with:
+        pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
+
+    - name: Installing dependencies.
+      run: npm install -g @unlighthouse/cli puppeteer netlify-cli
+
+    - name: Waking Up Multidev.
+      run: |
+        BASE_BRANCH=${GITHUB_REF##*/}
+        BASE_BRANCH=${BASE_BRANCH:0:11} unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
+        URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
+
+        #Wake Up call.
+        echo Waking Up Multidev.
+        terminus env:wake teachforamerica.$BASE_BRANCH
+      
+    - name: Run UNLighthouse Report.
+      run: |
+        BASE_BRANCH=${GITHUB_REF##*/}
+        BASE_BRANCH=${BASE_BRANCH:0:11} unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
+        URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
+
+        echo Running the Lighthouse Report
+        #unlighthouse-ci --site $URL --build-static --reporter csvExpanded
+        echo Finished the Lighthouse Report
+
+        echo Renaming UNLighthouse report.
+        mv ./unlighthouse unlighthouse
+
+        echo Running ls -l
+        ls -l
+
+    - name: deployer
+      env:
+        pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
+        pantheon_site_name: '${{ secrets.PANTHEON_SITE_NAME }}'
+      run: |
+        BASE_BRANCH=${GITHUB_REF##*/}
+        BASE_BRANCH=${BASE_BRANCH:0:11}
+        SITE=`terminus site:info teachforamerica --field=id --format=string`
+        URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
+        USER=$BASE_BRANCH.$SITE
+        SOURCE_PATH=./unlighthouse
+        DESTINATION_PATH=$USER@appserver.$BASE_BRANCH.$SITE.drush.in:/files
+        
+        #echo Running terminus site:info teachforamerica --field=id --format=string
+        #terminus site:info teachforamerica --field=id --format=string
+        echo Ran teachforamerica.$BASE_BRANCH
+        echo Got this ID $SITE
+        echo want report for $URL
+        echo USER = $USER
+        echo DESTINATION_PATH = $DESTINATION_PATH
+
+        echo Running ls -l
+        ls -l
 
 
+
+        #rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ ./unlighthouse files/sunlighthouse
+
+        #rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ ./unlighthouse seth-test.a0995b70-62da-4c28-9600-ea646d1a1285@appserver.seth-test.a0995b70-62da-4c28-9600-ea646d1a1285.drush.in:/files
+
+        echo Running rsync to copy files to multidev.
+        rsync -rLvz --size-only --checksum --ipv4 --progress -e 'ssh -p 2222' --temp-dir=~/tmp/ $SOURCE_PATH $DESTINATION_PATH
+
+        
+        echo bye
+        
+        
