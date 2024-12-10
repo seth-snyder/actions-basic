@@ -11,7 +11,7 @@ jobs:
         URL=https://teachforamerica.org
         echo Stepppp 1 URL = $URL
 
-    - name: Step Two.
+    - name: Output Links
       run: |
         REPORT_LINK=$URL
         REPORT_LINK+='/sites/default/files/unlighthouse/index.html'
