@@ -13,6 +13,7 @@ jobs:
 
     - name: Step Two.
       run: |
+        URL=https://teachforamerica.org
         REPORT_LINK=$URL
         REPORT_LINK+='/sites/default/files/unlighthouse/index.html'
         UNLIGHTHOUSE_LINK=$URL
