@@ -1,4 +1,4 @@
-name: Deployment
+name: create_dlighthouse_report
 
 concurrency: production
 
