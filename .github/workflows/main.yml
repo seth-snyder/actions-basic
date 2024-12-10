@@ -23,7 +23,8 @@ jobs:
         pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
 
     - name: Installing dependencies.
-      run: npm install -g @unlighthouse/cli puppeteer netlify-cli
+      #run: npm install -g @unlighthouse/cli puppeteer netlify-cli
+      run: echo fycb
 
     - name: Waking Up Multidev.
       run: |
