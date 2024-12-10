@@ -13,14 +13,13 @@ jobs:
 
     - name: Step Two.
       run: |
-        URL=https://teachforamerica.org
         REPORT_LINK=$URL
         REPORT_LINK+='/sites/default/files/unlighthouse/index.html'
         UNLIGHTHOUSE_LINK=$URL
         UNLIGHTHOUSE_LINK+='/sites/default/files/unlighthouse/ci-result.csv'
-        echo $REPORT_LINK
-        echo $UNLIGHTHOUSE_LINK
-        echo Step 2 URL = $URL
+        echo Report: $REPORT_LINK
+        echo Lighthouse: $UNLIGHTHOUSE_LINK
+  
 
 
 
