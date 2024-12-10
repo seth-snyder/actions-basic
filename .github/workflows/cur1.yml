@@ -6,5 +6,20 @@ jobs:
   lighthouseci:
     runs-on: ubuntu-latest
     steps:
-      - run: echo cur1 branch main
-      - run: echo cur1 branch main
+    - name: Step One.
+      run: |
+        URL=https://teachforamerica.org
+        echo Step 1 URL = $URL
+
+    - name: Step Two.
+      run: |
+        REPORT_LINK=$URL
+        REPORT_LINK+='/sites/default/files/unlighthouse/index.html'
+        UNLIGHTHOUSE_LINK=$URL
+        UNLIGHTHOUSE_LINK+=/sites/default/files/unlighthouse/ci-result.csv'
+        echo $REPORT_LINK
+        echo $UNLIGHTHOUSE_LINK
+        echo Step 2 URL = $URL
+
+
+   
