@@ -9,7 +9,7 @@ jobs:
     - name: Step One.
       run: |
         URL=https://teachforamerica.org
-        echo Steppp 1 URL = $URL
+        echo Stepppp 1 URL = $URL
 
 
    
