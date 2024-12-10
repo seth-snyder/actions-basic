@@ -28,7 +28,7 @@ jobs:
     - name: Waking Up Multidev.
       run: |
         BASE_BRANCH=${GITHUB_REF##*/}
-        BASE_BRANCH=${BASE_BRANCH:0:11} unlighthouse-ci --site https://www.teachforamerica.org --build-static --reporter csvExpanded
+        BASE_BRANCH=${BASE_BRANCH:0:11}
         URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
 
         #Wake Up call.
