@@ -17,7 +17,7 @@ jobs:
         REPORT_LINK=$URL
         REPORT_LINK+='/sites/default/files/unlighthouse/index.html'
         UNLIGHTHOUSE_LINK=$URL
-        UNLIGHTHOUSE_LINK+=/sites/default/files/unlighthouse/ci-result.csv'
+        UNLIGHTHOUSE_LINK+='/sites/default/files/unlighthouse/ci-result.csv'
         echo $REPORT_LINK
         echo $UNLIGHTHOUSE_LINK
         echo Step 2 URL = $URL
