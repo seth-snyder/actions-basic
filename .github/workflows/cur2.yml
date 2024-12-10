@@ -81,6 +81,7 @@ jobs:
 
     - name: Show Output Links
       run: |
+        URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
         REPORT_LINK=$URL
         REPORT_LINK+='/sites/default/files/unlighthouse/index.html'
         UNLIGHTHOUSE_LINK=$URL
