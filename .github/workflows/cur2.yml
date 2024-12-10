@@ -27,6 +27,7 @@ jobs:
 
     - name: Waking Up Multidev.
       run: |
+        URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
         BASE_BRANCH=${GITHUB_REF##*/}
         BASE_BRANCH=${BASE_BRANCH:0:11}
         URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
