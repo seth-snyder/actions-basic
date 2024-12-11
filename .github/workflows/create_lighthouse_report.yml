@@ -72,9 +72,9 @@ jobs:
         BASE_BRANCH=${BASE_BRANCH:0:11}
         URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
         REPORT_LINK=$URL
-        REPORT_LINK+='/sites/default/files/unlighthouse/'
+        REPORT_LINK+='/sites/default/files/unlighthouse/ci-result.csv'
         UNLIGHTHOUSE_LINK=$URL
-        UNLIGHTHOUSE_LINK+='/sites/default/files/unlighthouse/ci-result.csv'
-        echo Report: $REPORT_LINK
+        UNLIGHTHOUSE_LINK+='/sites/default/files/unlighthouse/'
         echo Lighthouse: $UNLIGHTHOUSE_LINK
+        echo Report: $REPORT_LINK
         echo bye
