@@ -48,7 +48,7 @@ jobs:
         echo Finished the Lighthouse Report
 
         echo Renaming UNLighthouse report.
-        mv ./unlighthouse unlighthouse
+        #mv ./unlighthouse unlighthouse
 
         echo Running ls -l
         ls -l
