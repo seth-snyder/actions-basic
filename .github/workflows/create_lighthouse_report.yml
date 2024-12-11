@@ -63,8 +63,6 @@ jobs:
         SITE=`terminus site:info teachforamerica --field=id --format=string`
         URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
         USER=$BASE_BRANCH.$SITE
-        SOURCE_PATH=./unlighthouse
-        DESTINATION_PATH=$USER@appserver.$BASE_BRANCH.$SITE.drush.in:/files
         SOURCE_PATH=.unlighthouse/
         DESTINATION_PATH=$USER@appserver.$BASE_BRANCH.$SITE.drush.in:/files/unlighthouse
         
@@ -88,7 +86,7 @@ jobs:
         BASE_BRANCH=${BASE_BRANCH:0:11}
         URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
         REPORT_LINK=$URL
-        REPORT_LINK+='/sites/default/files/unlighthouse/index.html'
+        REPORT_LINK+='/sites/default/files/unlighthouse/'
         UNLIGHTHOUSE_LINK=$URL
         UNLIGHTHOUSE_LINK+='/sites/default/files/unlighthouse/ci-result.csv'
         echo Report: $REPORT_LINK
