@@ -1,16 +1,22 @@
 name: Create Lighthouse Report
-
-concurrency: production
-
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
-  deployment:
+  lighthouseci:
     runs-on: ubuntu-latest
-    environment: production
     steps:
-      - name: deploy
-        run: echo yo
+    - name: Step One.
+      run: |
+        URL=https://teachforamerica.org
+        echo Stepppp 1 URL = $URL
+
+    - name: Output Links
+      run: |
+        REPORT_LINK=$URL
+        REPORT_LINK+='/sites/default/files/unlighthouse/index.html'
+        UNLIGHTHOUSE_LINK=$URL
+        UNLIGHTHOUSE_LINK+='/sites/default/files/unlighthouse/ci-result.csv'
+        echo Report: $REPORT_LINK
+        echo Lighthouse: $UNLIGHTHOUSE_LINK
+  
