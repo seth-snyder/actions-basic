@@ -84,6 +84,8 @@ jobs:
 
     - name: Show Output Links
       run: |
+        BASE_BRANCH=${GITHUB_REF##*/}
+        BASE_BRANCH=${BASE_BRANCH:0:11}
         URL=https://$BASE_BRANCH-teachforamerica.pantheonsite.io
         REPORT_LINK=$URL
         REPORT_LINK+='/sites/default/files/unlighthouse/index.html'
