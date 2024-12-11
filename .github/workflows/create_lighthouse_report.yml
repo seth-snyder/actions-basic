@@ -35,7 +35,7 @@ jobs:
         #Wake Up call.
         #echo Waking Up Multidev.
         terminus env:wake teachforamerica.$BASE_BRANCH
-      
+
     - name: Run UNLighthouse Report.
       run: |
         BASE_BRANCH=${GITHUB_REF##*/}
@@ -59,14 +59,6 @@ jobs:
         USER=$BASE_BRANCH.$SITE
         SOURCE_PATH=.unlighthouse/
         DESTINATION_PATH=$USER@appserver.$BASE_BRANCH.$SITE.drush.in:/files/unlighthouse
-        
-        #echo Running terminus site:info teachforamerica --field=id --format=string
-        #terminus site:info teachforamerica --field=id --format=string
-        echo Ran teachforamerica.$BASE_BRANCH
-        echo Got this ID $SITE
-        echo want report for $URL
-        echo USER = $USER
-        echo DESTINATION_PATH = $DESTINATION_PATH
 
         echo Running ls -a -l
         ls -a -l
@@ -85,5 +77,4 @@ jobs:
         UNLIGHTHOUSE_LINK+='/sites/default/files/unlighthouse/ci-result.csv'
         echo Report: $REPORT_LINK
         echo Lighthouse: $UNLIGHTHOUSE_LINK
-
         echo bye
