@@ -47,12 +47,6 @@ jobs:
         unlighthouse-ci --site $URL --build-static --reporter csvExpanded
         echo Finished the Lighthouse Report
 
-        echo Renaming UNLighthouse report.
-        #mv ./unlighthouse unlighthouse
-
-        echo Running ls -a -l
-        ls -a -l
-
     - name: deployer
       env:
         pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
